@@ -78,8 +78,9 @@ testPersonalidad = pd.DataFrame([resultados], columns=["Identificador", "Nombre"
 
 # print the DataFrame
 st.write("Here's our first attempt at using data to create a table:")
-st.write(testPersonalidad)
 
+st.dataframe(testPersonalidad.style.highlight_max(axis=0))
+"""
 datos5 = testPersonalidad.loc[:, ["Neurosis", "Extroversión", "Apertura a experiencias", "Simpatía", "Meticulosidad"]]
 
 etiquetas=['Neurosis', 'Extroversión', 'Apertura a experiencias', 'Simpatía', 'Meticulosidad']
@@ -105,3 +106,4 @@ plt.fill(theta, lista, 'b', alpha = 0.1)
 plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
 plt.savefig(userName.title() + " test personalidad stats 5.png")
 plt.show()
+"""
