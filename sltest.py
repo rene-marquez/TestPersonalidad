@@ -77,7 +77,7 @@ testPersonalidad = pd.DataFrame([resultados], columns=["Identificador", "Nombre"
                                                          ])
 
 # print the DataFrame
-#print(testPersonalidad)
+testPersonalidad
 
 datos5 = testPersonalidad.loc[:, ["Neurosis", "Extroversión", "Apertura a experiencias", "Simpatía", "Meticulosidad"]]
 
