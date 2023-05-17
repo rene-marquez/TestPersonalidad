@@ -1,6 +1,12 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import requests
+import matplotlib.pyplot as plt
+import requests
+import seaborn as sns
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse
 
 # Solicitar el nombre por teclado
 st.text_input("¿Cuál es tu nombre?:", key="nombre")
