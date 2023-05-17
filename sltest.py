@@ -77,7 +77,8 @@ testPersonalidad = pd.DataFrame([resultados], columns=["Identificador", "Nombre"
                                                          ])
 
 # print the DataFrame
-testPersonalidad
+st.write("Here's our first attempt at using data to create a table:")
+st.write(testPersonalidad)
 
 datos5 = testPersonalidad.loc[:, ["Neurosis", "Extroversión", "Apertura a experiencias", "Simpatía", "Meticulosidad"]]
 
