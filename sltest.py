@@ -10,9 +10,11 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
 # Solicitar el nombre por teclado
-userName = input("¿Cuál es tu nombre?:")
+st.text_input("¿Cuál es tu nombre?:", key="nombre")
+userName = st.session_state.nombre
 # Solicitar el identificador por teclado
-identificador = input("¿Cuál es el Id del resultado del test?:")
+st.text_input("¿Cuál es el Id del resultado del test?:", key="identificador")
+identificador = st.session_state.identificador
 
 while True:
     # Concatenar el identificador a la URL base del sitio web
