@@ -103,5 +103,5 @@ plt.fill(theta, lista, 'b', alpha = 0.1)
 
 
 plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
-plt.savefig(userName.title() + " test personalidad stats 5.png")
-st.plotly_chart(plt, use_container_width=False, sharing="streamlit", theme="streamlit")
+#plt.savefig(userName.title() + " test personalidad stats 5.png")
+st.pyplot(plt.gcf())
