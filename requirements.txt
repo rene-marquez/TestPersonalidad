@@ -3,3 +3,4 @@ bs4
 beautifulsoup4
 seaborn
 streamlit
+plotly
