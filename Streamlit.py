@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import requests
 import matplotlib.pyplot as plt
+import plotly.figure_factory as ff
 import requests
 import seaborn as sns
 from bs4 import BeautifulSoup
