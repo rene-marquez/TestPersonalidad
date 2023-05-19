@@ -190,7 +190,7 @@ plt.legend(labels =("Prospecto", userName.title()), loc = 1, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de Meticulosidad
-st.write("Este es el resultado de meticulosidad:")
+st.write("Este es el resultado de Meticulosidad:")
 meticulosidad = testPersonalidad.loc[:, ["Autoeficacia", "Orden", "Sentido del deber", 
                                          "Orientación a objetivos", "Disciplina", "Prudencia"]]
 etiquetas=["Autoeficacia", "Orden", "Sentido del deber", "Orientación a objetivos", "Disciplina", "Prudencia"]
