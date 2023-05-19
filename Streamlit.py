@@ -80,6 +80,7 @@ testPersonalidad = pd.DataFrame([resultados], columns=["Identificador", "Nombre"
 
 st.dataframe(testPersonalidad)
 
+#Creando la grafica radial con los resultados principales
 datos5 = testPersonalidad.loc[:, ["Neurosis", "Extroversión", "Apertura a experiencias", "Simpatía", "Meticulosidad"]]
 
 etiquetas=['Neurosis', 'Extroversión', 'Apertura a experiencias', 'Simpatía', 'Meticulosidad']
@@ -99,13 +100,10 @@ lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
 plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
-
-
-
 plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
-#plt.savefig(userName.title() + " test personalidad stats 5.png")
 st.pyplot(plt.gcf())
 
+#Creando la grafica radial con los resultados de neurosis
 neurosis = testPersonalidad.loc[:, ["Ansiedad", "Ira", "Depresión", "Vergüenza", 
                                       "Falta de moderacion", "Vulnerabilidad"]]
 etiquetas=["Ansiedad", "Ira", "Depresión", "Vergüenza", "Falta de moderacion", "Vulnerabilidad"]
@@ -114,23 +112,18 @@ lista = list(neurosis.iloc[0])
 lista=np.concatenate((lista, [lista[0]]))
 esperado = (10, 10, 10, 10, 10, 10, 10)
 
-
 plt.figure(figsize =(10, 6))
 plt.subplot(polar = True)
-
 theta = np.linspace(0, 2 * np.pi, len(lista))
-
 lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
                                                          (etiquetas))
 plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
-
-
-
-plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
+plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
 
+#Creando la grafica radial con los resultados de extroversión
 extroversion = testPersonalidad.loc[:, ["Cordialidad", "Sociabilidad", "Confianza", "Nivel de actividad", 
                                                         "Búsqueda de nuevas experiencias", "Alegría"]]
 etiquetas=["Cordialidad", "Sociabilidad", "Confianza", "Nivel de actividad", 
@@ -140,17 +133,73 @@ lista = list(extroversion.iloc[0])
 lista=np.concatenate((lista, [lista[0]]))
 esperado = (10, 10, 10, 10, 10, 10, 10)
 
-
 plt.figure(figsize =(10, 6))
 plt.subplot(polar = True)
-
 theta = np.linspace(0, 2 * np.pi, len(lista))
-
 lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
                                                          (etiquetas))
 plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
+plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
+st.pyplot(plt.gcf())
 
-plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
+#Creando la grafica radial con los resultados de apertura a experiencias
+aperturaExperiencias = testPersonalidad.loc[:, ["Imaginación", "Interes artístico", "Sensibilidad", "Ansias de aventura", 
+                                                        "Intelecto", "Liberalismo"]]
+etiquetas=["Imaginación", "Interes artístico", "Sensibilidad", "Ansias de aventura", 
+                                                        "Intelecto", "Liberalismo"]
+lista = list(extroversion.iloc[0])
+lista=np.concatenate((lista, [lista[0]]))
+esperado = (10, 10, 10, 10, 10, 10, 10)
+
+plt.figure(figsize =(10, 6))
+plt.subplot(polar = True)
+theta = np.linspace(0, 2 * np.pi, len(lista))
+lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
+                                                         (etiquetas))
+plt.plot(theta, esperado)
+plt.plot(theta, lista)
+plt.fill(theta, lista, 'b', alpha = 0.1)
+plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
+st.pyplot(plt.gcf())
+
+#Creando la grafica radial con los resultados de simpatia
+simpatia = testPersonalidad.loc[:, ["Confianza 2", "Moral", "Altruismo", 
+                                    "Cooperación", "Modestia", "Empatía"]]
+etiquetas=["Confianza 2", "Moral", "Altruismo", "Cooperación", "Modestia", "Empatía"]
+
+lista = list(simpatia.iloc[0])
+lista=np.concatenate((lista, [lista[0]]))
+esperado = (10, 10, 10, 10, 10, 10, 10)
+
+plt.figure(figsize =(10, 6))
+plt.subplot(polar = True)
+theta = np.linspace(0, 2 * np.pi, len(lista))
+lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
+                                                         (etiquetas))
+plt.plot(theta, esperado)
+plt.plot(theta, lista)
+plt.fill(theta, lista, 'b', alpha = 0.1)
+plt.legend(labels =("Prospecto", userName.title()), loc = 1, framealpha=0)
+st.pyplot(plt.gcf())
+
+#Creando la grafica radial con los resultados de meticulosidad
+meticulosidad = testPersonalidad.loc[:, ["Autoeficacia", "Orden", "Sentido del deber", 
+                                         "Orientación a objetivos", "Disciplina", "Prudencia"]]
+etiquetas=["Autoeficacia", "Orden", "Sentido del deber", "Orientación a objetivos", "Disciplina", "Prudencia"]
+
+lista = list(meticulosidad.iloc[0])
+lista=np.concatenate((lista, [lista[0]]))
+esperado = (10, 10, 10, 10, 10, 10, 10)
+
+plt.figure(figsize =(10, 6))
+plt.subplot(polar = True)
+theta = np.linspace(0, 2 * np.pi, len(lista))
+lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
+                                                         (etiquetas))
+plt.plot(theta, esperado)
+plt.plot(theta, lista)
+plt.fill(theta, lista, 'b', alpha = 0.1)
+plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
