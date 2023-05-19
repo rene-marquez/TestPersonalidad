@@ -115,7 +115,7 @@ lista=np.concatenate((lista, [lista[0]]))
 esperado = (10, 10, 10, 10, 10, 10, 10)
 
 
-plt.figure(figsize =(10, 8))
+plt.figure(figsize =(10, 6))
 plt.subplot(polar = True)
 
 theta = np.linspace(0, 2 * np.pi, len(lista))
@@ -127,6 +127,30 @@ plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
 
 
+
+plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
+st.pyplot(plt.gcf())
+
+extroversion = testPersonalidad.loc[:, ["Cordialidad", "Sociabilidad", "Confianza", "Nivel de actividad", 
+                                                        "Búsqueda de nuevas experiencias", "Alegría"]]
+etiquetas=["Cordialidad", "Sociabilidad", "Confianza", "Nivel de actividad", 
+            "Búsqueda de nuevas experiencias", "Alegría"]
+
+lista = list(extroversion.iloc[0])
+lista=np.concatenate((lista, [lista[0]]))
+esperado = (10, 10, 10, 10, 10, 10, 10)
+
+
+plt.figure(figsize =(10, 6))
+plt.subplot(polar = True)
+
+theta = np.linspace(0, 2 * np.pi, len(lista))
+
+lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
+                                                         (etiquetas))
+plt.plot(theta, esperado)
+plt.plot(theta, lista)
+plt.fill(theta, lista, 'b', alpha = 0.1)
 
 plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
 st.pyplot(plt.gcf())
