@@ -81,6 +81,7 @@ testPersonalidad = pd.DataFrame([resultados], columns=["Identificador", "Nombre"
 st.dataframe(testPersonalidad)
 
 #Creando la grafica radial con los resultados principales
+st.write("Este es el resultado del \"The big 5\":")
 datos5 = testPersonalidad.loc[:, ["Neurosis", "Extroversión", "Apertura a experiencias", "Simpatía", "Meticulosidad"]]
 
 etiquetas=['Neurosis', 'Extroversión', 'Apertura a experiencias', 'Simpatía', 'Meticulosidad']
@@ -104,6 +105,7 @@ plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de neurosis
+st.write("Este es el resultado de Neurosis:")
 neurosis = testPersonalidad.loc[:, ["Ansiedad", "Ira", "Depresión", "Vergüenza", 
                                       "Falta de moderacion", "Vulnerabilidad"]]
 etiquetas=["Ansiedad", "Ira", "Depresión", "Vergüenza", "Falta de moderacion", "Vulnerabilidad"]
@@ -124,6 +126,7 @@ plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de extroversión
+st.write("Este es el resultado de Extroversión:")
 extroversion = testPersonalidad.loc[:, ["Cordialidad", "Sociabilidad", "Confianza", "Nivel de actividad", 
                                                         "Búsqueda de nuevas experiencias", "Alegría"]]
 etiquetas=["Cordialidad", "Sociabilidad", "Confianza", "Nivel de actividad", 
@@ -145,6 +148,7 @@ plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de apertura a experiencias
+st.write("Este es el resultado de Apertura a Experiencias:")
 aperturaExperiencias = testPersonalidad.loc[:, ["Imaginación", "Interes artístico", "Sensibilidad", "Ansias de aventura", 
                                                         "Intelecto", "Liberalismo"]]
 etiquetas=["Imaginación", "Interes artístico", "Sensibilidad", "Ansias de aventura", 
@@ -165,6 +169,7 @@ plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de simpatia
+st.write("Este es el resultado de Simpatia:")
 simpatia = testPersonalidad.loc[:, ["Confianza 2", "Moral", "Altruismo", 
                                     "Cooperación", "Modestia", "Empatía"]]
 etiquetas=["Confianza", "Moral", "Altruismo", "Cooperación", "Modestia", "Empatía"]
@@ -185,6 +190,7 @@ plt.legend(labels =("Prospecto", userName.title()), loc = 1, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de meticulosidad
+st.write("Este es el resultado de meticulosidad:")
 meticulosidad = testPersonalidad.loc[:, ["Autoeficacia", "Orden", "Sentido del deber", 
                                          "Orientación a objetivos", "Disciplina", "Prudencia"]]
 etiquetas=["Autoeficacia", "Orden", "Sentido del deber", "Orientación a objetivos", "Disciplina", "Prudencia"]
