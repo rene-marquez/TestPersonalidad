@@ -167,7 +167,7 @@ st.pyplot(plt.gcf())
 #Creando la grafica radial con los resultados de simpatia
 simpatia = testPersonalidad.loc[:, ["Confianza 2", "Moral", "Altruismo", 
                                     "Cooperación", "Modestia", "Empatía"]]
-etiquetas=["Confianza 2", "Moral", "Altruismo", "Cooperación", "Modestia", "Empatía"]
+etiquetas=["Confianza", "Moral", "Altruismo", "Cooperación", "Modestia", "Empatía"]
 
 lista = list(simpatia.iloc[0])
 lista=np.concatenate((lista, [lista[0]]))
