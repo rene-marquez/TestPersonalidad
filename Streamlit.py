@@ -102,6 +102,7 @@ plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
 plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
+plt.title("The big 5")
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de neurosis
@@ -189,7 +190,7 @@ plt.fill(theta, lista, 'b', alpha = 0.1)
 plt.legend(labels =("Prospecto", userName.title()), loc = 1, framealpha=0)
 st.pyplot(plt.gcf())
 
-#Creando la grafica radial con los resultados de Meticulosidad
+#Creando la grafica radial con los resultados de meticulosidad
 st.write("Este es el resultado de Meticulosidad:")
 meticulosidad = testPersonalidad.loc[:, ["Autoeficacia", "Orden", "Sentido del deber", 
                                          "Orientación a objetivos", "Disciplina", "Prudencia"]]
