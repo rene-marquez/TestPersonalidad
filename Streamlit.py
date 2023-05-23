@@ -67,87 +67,6 @@ for atributo in atributos:
     # append the attribute name and score to the results list
     resultados.append(score)    
 
-
-# Creando la Base de datos
-# Nombre del archivo de la base de datos
-db_file = "test_personalidad.db"
-
-# Nombre de la tabla en la base de datos
-table_name = "test_personalidad"
-
-# Crear una conexión a la base de datos
-conn = sqlite3.connect(db_file)
-
-# Crear la tabla en la base de datos si no existe
-create_table_query = f"""
-CREATE TABLE IF NOT EXISTS {table_name} (
-    Identificador TEXT PRIMARY KEY,
-    Nombre TEXT,
-    Neurosis INTEGER,
-    Ansiedad INTEGER,
-    Ira INTEGER,
-    Depresión INTEGER,
-    Vergüenza INTEGER,
-    "Falta de moderacion" INTEGER,
-    Vulnerabilidad INTEGER,
-    Extroversión INTEGER,
-    Cordialidad INTEGER,
-    Sociabilidad INTEGER,
-    Confianza INTEGER,
-    "Nivel de actividad" INTEGER,
-    "Búsqueda de nuevas experiencias" INTEGER,
-    Alegría INTEGER,
-    "Apertura a experiencias" INTEGER,
-    Imaginación INTEGER,
-    "Interes artístico" INTEGER,
-    Sensibilidad INTEGER,
-    "Ansias de aventura" INTEGER,
-    Intelecto INTEGER,
-    Liberalismo INTEGER,
-    Simpatía INTEGER,
-    "Confianza 2" INTEGER,
-    Moral INTEGER,
-    Altruismo INTEGER,
-    Cooperación INTEGER,
-    Modestia INTEGER,
-    Empatía INTEGER,
-    Meticulosidad INTEGER,
-    Autoeficacia INTEGER,
-    Orden INTEGER,
-    "Sentido del deber" INTEGER,
-    "Orientación a objetivos" INTEGER,
-    Disciplina INTEGER,
-    Prudencia INTEGER
-)
-"""
-conn.execute(create_table_query)
-conn.commit()
-
-# Validar si el identificador ya existe en la base de datos
-def validar_identificador(identificador):
-    select_query = f"SELECT Identificador FROM {table_name} WHERE Identificador = ?"
-    cursor = conn.execute(select_query, (identificador,))
-    existing_row = cursor.fetchone()
-    return existing_row is not None
-
-# Insertar el registro en la base de datos
-def insertar_registro(resultados):
-    insert_query = f"INSERT INTO {table_name} VALUES ({','.join(['?'] * len(resultados))})"
-    conn.execute(insert_query, resultados)
-    conn.commit()
-
-# Validar si el identificador ya existe en la base de datos de lo contrario crear el registro
-identificador = resultados[0]
-
-if validar_identificador(identificador):
-     print(f"El identificador {identificador} ya existe en la base de datos. No se duplicará el registro.")
-else:
-    insertar_registro(resultados)
-    print(f"Se ha insertado el registro con el identificador {identificador} en la base de datos.")
-
-# Cerrar la conexión a la base de datos
-conn.close()
-
 # create a pandas DataFrame from the results list
 
 testPersonalidad = pd.DataFrame([resultados], columns=["Identificador", "Nombre","Neurosis", "Ansiedad", "Ira", "Depresión", "Vergüenza", 
@@ -269,7 +188,7 @@ lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
 plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
-plt.legend(labels =("Prospecto", userName.title()), loc = 1, framealpha=0)
+plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de meticulosidad
