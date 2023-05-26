@@ -12,18 +12,20 @@ import sqlite3
 import psycopg2
 
 # Solicitar el nombre por teclado
-
 st.text_input("¿Cuál es tu nombre?:", key="nombre")
 userName = st.session_state.nombre
-
+if not userName:
+  st.warning("Por favor captura un nombre.")
+  st.stop()
+st.success("Gracias.")
 """
 def get_name(key: str):
-    return st.session_state.get(key="nombre")
-
+    st.text_input("¿Cuál es tu nombre?:", key="nombre")
 def add_name(key: str):
-    st.session_state.
+ st.session_state.nombre
 
-
+nuevoNombre = get_name(key=)
+userName = add_name()
 userName=None
 prueba=None
 while prueba==None:
