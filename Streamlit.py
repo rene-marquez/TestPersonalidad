@@ -13,7 +13,7 @@ import psycopg2
 
 # Solicitar el nombre por teclado
 def get_name(key: str):
-    return st.session_state.get(key="nombre", None)
+    return st.session_state.get(key="nombre")
 
 def add_name(key: str):
     st.session_state.
@@ -22,8 +22,7 @@ def add_name(key: str):
 userName=None
 prueba=None
 while prueba==None:
-    e = 1
-    result = get_name(e)
+    result = st.session_state.get(key="nombre")
     if not result:
        st.text_input("¿Cuál es tu nombre?:", key="nombre")
        userName = st.session_state.nombre
