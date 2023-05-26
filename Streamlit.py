@@ -13,6 +13,7 @@ import psycopg2
 
 # Solicitar el nombre por teclado
 st.text_input("¿Cuál es tu nombre?:", key="nombre")
+userName=None
 if not userName:
     userName = st.session_state.nombre
 else:
