@@ -12,15 +12,24 @@ import sqlite3
 import psycopg2
 
 # Solicitar el nombre por teclado
-st.text_input("¿Cuál es tu nombre?:", key="nombre")
+def get_name(key: str):
+    return st.session_state.get(key="nombre", None)
+
+def add_name(key: str):
+    st.session_state.
+
+
 userName=None
 prueba=None
 while prueba==None:
-    if not userName:
-     userName = st.session_state.nombre
-     prueba+=1
+    e = 1
+    result = get_name(e)
+    if not result:
+       st.text_input("¿Cuál es tu nombre?:", key="nombre")
+       userName = st.session_state.nombre
+       st.experimental_rerun()
     else:
-     st.stop()
+       st.stop()
 
 # Solicitar el identificador por teclado
 st.text_input("¿Cuál es el Id del resultado del test de la pagina https://bigfive-test.com/es?:", key="identificador")
