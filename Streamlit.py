@@ -9,6 +9,7 @@ import seaborn as sns
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 import sqlite3
+import psycopg2
 
 # Solicitar el nombre por teclado
 st.text_input("¿Cuál es tu nombre?:", key="nombre")
@@ -27,7 +28,7 @@ while True:
 
     # Buscar la frase ""Request failed with status code 500"" en la URL    
     if "Request failed with status code 500" in response.text:
-     identificador = input("La URL no es válida. Por favor, verifica el identificador del resultado del test.")
+     identificador = st.text_input("La URL no es válida. Por favor, verifica el identificador del resultado del test.")
     else:
      # Crear el objeto soup object desde response
      soup = BeautifulSoup(response.content, "html.parser")
@@ -211,3 +212,84 @@ plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
 plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
+
+#Creación de la base de datos
+# Nombre de la tabla en la base de datos
+table_name = "test"
+
+conn = psycopg2.connect(database="personality_test",
+                        host="138.197.196.136",
+                        user="persontest",
+                        password="f57403cdcca683e5b",
+                        port="5432")
+
+cursor = conn.cursor()
+
+create_table_query = f"""
+CREATE TABLE IF NOT EXISTS {table_name} (
+    Identificador TEXT PRIMARY KEY,
+    Nombre TEXT,
+    Neurosis INTEGER,
+    Ansiedad INTEGER,
+    Ira INTEGER,
+    Depresión INTEGER,
+    Vergüenza INTEGER,
+    "Falta de moderacion" INTEGER,
+    Vulnerabilidad INTEGER,
+    Extroversión INTEGER,
+    Cordialidad INTEGER,
+    Sociabilidad INTEGER,
+    Confianza INTEGER,
+    "Nivel de actividad" INTEGER,
+    "Búsqueda de nuevas experiencias" INTEGER,
+    Alegría INTEGER,
+    "Apertura a experiencias" INTEGER,
+    Imaginación INTEGER,
+    "Interes artístico" INTEGER,
+    Sensibilidad INTEGER,
+    "Ansias de aventura" INTEGER,
+    Intelecto INTEGER,
+    Liberalismo INTEGER,
+    Simpatía INTEGER,
+    "Confianza 2" INTEGER,
+    Moral INTEGER,
+    Altruismo INTEGER,
+    Cooperación INTEGER,
+    Modestia INTEGER,
+    Empatía INTEGER,
+    Meticulosidad INTEGER,
+    Autoeficacia INTEGER,
+    Orden INTEGER,
+    "Sentido del deber" INTEGER,
+    "Orientación a objetivos" INTEGER,
+    Disciplina INTEGER,
+    Prudencia INTEGER
+);
+"""
+cursor.execute(create_table_query)
+conn.commit()
+
+# Validar si el identificador ya existe en la base de datos
+def validar_identificador(identificador):
+    select_query = f"SELECT Identificador FROM {table_name} WHERE Identificador = %s"
+    cursor = conn.cursor()
+    cursor.execute(select_query, (identificador,))
+    existing_row = cursor.fetchone()
+    return existing_row is not None
+
+# Insertar el registro en la base de datos
+def insertar_registro(resultados):
+    insert_query = f"INSERT INTO {table_name} VALUES ({','.join(['%s'] * len(resultados))})"
+    cursor = conn.cursor()
+    cursor.execute(insert_query, resultados)
+    conn.commit()
+
+# Iterar sobre los registros y validar si el identificador ya existe en la base de datos
+if validar_identificador(identificador):
+    print(f"El identificador {identificador} ya existe en la base de datos. No se duplicará el registro.")
+else:
+    insertar_registro(resultados)
+    print(f"Se ha insertado el registro con el identificador {identificador} en la base de datos.")
+
+# Cerrar la conexión a la base de datos
+conn.close()

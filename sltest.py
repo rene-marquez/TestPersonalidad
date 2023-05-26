@@ -10,10 +10,12 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
 # Solicitar el nombre por teclado
+
+
 st.text_input("¿Cuál es tu nombre?:", key="nombre")
 userName = st.session_state.nombre
 # Solicitar el identificador por teclado
-st.text_input("¿Cuál es el Id del resultado del test?:", key="identificador")
+st.text_input("¿Cuál es el Id del resultado del test de la pagina?:", key="identificador")
 identificador = st.session_state.identificador
 
 while True:
@@ -26,7 +28,7 @@ while True:
 
     # Buscar la frase ""Request failed with status code 500"" en la URL    
     if "Request failed with status code 500" in response.text:
-     identificador = input("La URL no es válida. Por favor, verifica el identificador del resultado del test.")
+     identificador = st.text_input("La URL no es válida. Por favor, verifica el identificador del resultado del test.")
     else:
      # Crear el objeto soup object desde response
      soup = BeautifulSoup(response.content, "html.parser")
