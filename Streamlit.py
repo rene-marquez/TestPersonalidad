@@ -15,7 +15,7 @@ import psycopg2
 st.text_input("¿Cuál es tu nombre?:", key="nombre")
 userName = st.session_state.nombre
 # Solicitar el identificador por teclado
-st.text_input("¿Cuál es el Id del resultado del test?:", key="identificador")
+st.text_input("¿Cuál es el Id del resultado del test de la pagina https://bigfive-test.com/es?:", key="identificador")
 identificador = st.session_state.identificador
 
 while True:
@@ -286,10 +286,10 @@ def insertar_registro(resultados):
 
 # Iterar sobre los registros y validar si el identificador ya existe en la base de datos
 if validar_identificador(identificador):
-    print(f"El identificador {identificador} ya existe en la base de datos. No se duplicará el registro.")
+    st.write(f"El identificador {identificador} ya existe en la base de datos. No se duplicará el registro.")
 else:
     insertar_registro(resultados)
-    print(f"Se ha insertado el registro con el identificador {identificador} en la base de datos.")
+    st.write(f"Se ha insertado el registro con el identificador {identificador} en la base de datos.")
 
 # Cerrar la conexión a la base de datos
 conn.close()
