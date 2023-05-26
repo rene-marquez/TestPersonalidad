@@ -100,10 +100,10 @@ theta = np.linspace(0, 2 * np.pi, len(lista))
 
 lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
                                                          (etiquetas))
-plt.plot(theta, esperado)
+#plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
-plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
+#plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=1)
 plt.title("The big 5")
 st.pyplot(plt.gcf())
 
@@ -122,10 +122,10 @@ plt.subplot(polar = True)
 theta = np.linspace(0, 2 * np.pi, len(lista))
 lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
                                                          (etiquetas))
-plt.plot(theta, esperado)
+#plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
-plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
+#plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de extroversión
@@ -144,10 +144,10 @@ plt.subplot(polar = True)
 theta = np.linspace(0, 2 * np.pi, len(lista))
 lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
                                                          (etiquetas))
-plt.plot(theta, esperado)
+#plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
-plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
+#plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de apertura a experiencias
@@ -165,10 +165,10 @@ plt.subplot(polar = True)
 theta = np.linspace(0, 2 * np.pi, len(lista))
 lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
                                                          (etiquetas))
-plt.plot(theta, esperado)
+#plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
-plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
+#plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de simpatia
@@ -186,10 +186,10 @@ plt.subplot(polar = True)
 theta = np.linspace(0, 2 * np.pi, len(lista))
 lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
                                                          (etiquetas))
-plt.plot(theta, esperado)
+#plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
-plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
+#plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creando la grafica radial con los resultados de meticulosidad
@@ -207,10 +207,10 @@ plt.subplot(polar = True)
 theta = np.linspace(0, 2 * np.pi, len(lista))
 lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
                                                          (etiquetas))
-plt.plot(theta, esperado)
+#plt.plot(theta, esperado)
 plt.plot(theta, lista)
 plt.fill(theta, lista, 'b', alpha = 0.1)
-plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
+#plt.legend(labels =("Prospecto", userName.title()), loc = 3, framealpha=0)
 st.pyplot(plt.gcf())
 
 #Creación de la base de datos
