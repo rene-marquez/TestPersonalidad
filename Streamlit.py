@@ -13,7 +13,11 @@ import psycopg2
 
 # Solicitar el nombre por teclado
 st.text_input("¿Cuál es tu nombre?:", key="nombre")
-userName = st.session_state.nombre
+if not userName:
+    userName = st.session_state.nombre
+else:
+    st.stop()
+
 # Solicitar el identificador por teclado
 st.text_input("¿Cuál es el Id del resultado del test de la pagina https://bigfive-test.com/es?:", key="identificador")
 identificador = st.session_state.identificador
