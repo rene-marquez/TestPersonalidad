@@ -18,29 +18,14 @@ if not userName:
   st.warning("Por favor captura un nombre.")
   st.stop()
 st.success("Gracias.")
-"""
-def get_name(key: str):
-    st.text_input("¿Cuál es tu nombre?:", key="nombre")
-def add_name(key: str):
- st.session_state.nombre
 
-nuevoNombre = get_name(key=)
-userName = add_name()
-userName=None
-prueba=None
-while prueba==None:
-    result = st.session_state.get(key="nombre", None)
-    if not result:
-       st.text_input("¿Cuál es tu nombre?:", key="nombre")
-       userName = st.session_state.nombre
-       st.experimental_rerun()
-    else:
-       st.stop()
-"""
 # Solicitar el identificador por teclado
 st.text_input("¿Cuál es el Id del resultado del test de la pagina https://bigfive-test.com/es?:", key="identificador")
 identificador = st.session_state.identificador
-
+if not identificador:
+  st.warning("Por favor captura un identificador.")
+  st.stop()
+st.success("Gracias.")
 while True:
     # Concatenar el identificador a la URL base del sitio web
     url = f"https://bigfive-test.com/result/{identificador}"
