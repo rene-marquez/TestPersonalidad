@@ -50,7 +50,7 @@ identificador = st.session_state.identificador
 if not identificador:
   st.warning("Por favor captura un identificador.")
   st.stop()
-elif len(identificador)<24:
+elif len(identificador)!=24:
   st.warning("Por favor, verifica el identificador del resultado del test.")
   st.stop()
 else:
