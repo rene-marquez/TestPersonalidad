@@ -45,7 +45,7 @@ else:
     else:
      # Crear el objeto soup object desde response
      soup = BeautifulSoup(response.content, "html.parser")
-     validacion = validacion + 1 
+     
      break
 st.success("Gracias.")
 
