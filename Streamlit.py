@@ -26,6 +26,7 @@ if not identificador:
   st.warning("Por favor captura un identificador.")
   st.stop()
 st.success("Gracias.")
+
 while True:
     # Concatenar el identificador a la URL base del sitio web
     url = f"https://bigfive-test.com/result/{identificador}"
@@ -36,8 +37,8 @@ while True:
 
     # Buscar la frase ""Request failed with status code 500"" en la URL    
     if "Request failed with status code 500" in response.text:
-     st.text_input("La URL no es válida. Por favor, verifica el identificador del resultado del test.", key="id")
-     identificador = st.session_state.id
+     st.text_input("La URL no es válida. Por favor, verifica el identificador del resultado del test.", key="validacion")
+     identificador = st.session_state.validacion
      if not identificador: 
         st.warning("Por favor captura un identificador.")
         st.stop()
