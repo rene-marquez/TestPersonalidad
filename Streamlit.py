@@ -28,7 +28,7 @@ if not identificador:
 st.success("Gracias.")
 
 soup=False
-while soup:
+while validacion:
     # Concatenar el identificador a la URL base del sitio web
     url = f"https://bigfive-test.com/result/{identificador}"
 
@@ -47,7 +47,7 @@ while soup:
     else:
      # Crear el objeto soup object desde response
      soup = BeautifulSoup(response.content, "html.parser")
-    validacion = validacion + 1 
+     validacion = validacion + 1 
      #break
 
 
