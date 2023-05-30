@@ -64,7 +64,7 @@ else:
 
     # Buscar la frase ""Request failed with status code 500"" en la URL    
     if "Request failed with status code 500" in response.text:
-     identificador = st.text_input("La URL no es válida. Por favor, verifica el identificador del resultado del test.")
+     st.warning("La URL no es válida. Por favor, verifica el identificador del resultado del test.")
      if not identificador: 
         st.warning("Por favor captura un identificador.")
         st.stop()
