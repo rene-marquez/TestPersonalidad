@@ -8,7 +8,6 @@ import requests
 import seaborn as sns
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
-import sqlite3
 import psycopg2
 
 # Solicitar el nombre por teclado
