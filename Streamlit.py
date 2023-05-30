@@ -25,10 +25,8 @@ identificador = st.session_state.identificador
 if not identificador:
   st.warning("Por favor captura un identificador.")
   st.stop()
-st.success("Gracias.")
-
-soup=False
-while validacion:
+else:
+   while True:
     # Concatenar el identificador a la URL base del sitio web
     url = f"https://bigfive-test.com/result/{identificador}"
 
@@ -48,7 +46,10 @@ while validacion:
      # Crear el objeto soup object desde response
      soup = BeautifulSoup(response.content, "html.parser")
      validacion = validacion + 1 
-     #break
+     break
+st.success("Gracias.")
+
+
 
 
 # Definiendo la lista de atributos a extraer
