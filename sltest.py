@@ -20,7 +20,7 @@ def add_data(key: int, value: int):
 for e in some_list:
     result = get_data(e)
     if not result:
-        new_value = st.number_input(f"Missing value for {e}", value=5)
+        new_value = st.number_input(f"Missing value for {e}", value=7)
         tmp_button = st.button("Add value to database", key=f"missing_{e}")
         if tmp_button:
             add_data(e, new_value)
