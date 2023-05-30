@@ -36,8 +36,8 @@ while True:
 
     # Buscar la frase ""Request failed with status code 500"" en la URL    
     if "Request failed with status code 500" in response.text:
-     st.text_input("La URL no es válida. Por favor, verifica el identificador del resultado del test.", key="identificador")
-     identificador = st.session_state.identificador
+     st.text_input("La URL no es válida. Por favor, verifica el identificador del resultado del test.", key="id")
+     identificador = st.session_state.id
      if not identificador: 
         st.warning("Por favor captura un identificador.")
         st.stop()
