@@ -25,7 +25,7 @@ if not identificador:
   st.warning("Por favor captura un identificador.")
   st.stop()
 elif len(identificador)!=24:
-  st.warning("Por favor, verifica el identificador del resultado del test.")
+  st.warning("El identificador no es válido. Por favor, verifica el identificador del resultado del test.")
   st.stop()
 else:
    while True:
@@ -38,7 +38,7 @@ else:
 
     # Buscar la frase ""Request failed with status code 500"" en la URL    
     if "Request failed with status code 500" in response.text:
-     st.warning("La URL no es válida. Por favor, verifica el identificador del resultado del test.")
+     st.warning("El identificador no es válido. Por favor, verifica el identificador del resultado del test.")
      st.stop()
      if not identificador: 
         st.warning("Por favor captura un identificador.")
