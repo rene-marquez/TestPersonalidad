@@ -39,10 +39,12 @@ while True:
     if "Request failed with status code 500" in response.text:
      st.text_input("La URL no es válida. Por favor, verifica el identificador del resultado del test.", key="validacion")
      identificador = st.session_state.validacion
+     """
      if not identificador: 
         st.warning("Por favor captura un identificador.")
         st.stop()
      st.success("Gracias.")
+     """
     else:
      # Crear el objeto soup object desde response
      soup = BeautifulSoup(response.content, "html.parser")
