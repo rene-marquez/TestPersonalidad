@@ -27,7 +27,8 @@ if not identificador:
   st.stop()
 st.success("Gracias.")
 
-while True:
+soup=False
+while soup:
     # Concatenar el identificador a la URL base del sitio web
     url = f"https://bigfive-test.com/result/{identificador}"
 
@@ -37,8 +38,8 @@ while True:
 
     # Buscar la frase ""Request failed with status code 500"" en la URL    
     if "Request failed with status code 500" in response.text:
-     st.text_input("La URL no es válida. Por favor, verifica el identificador del resultado del test.", key="validacion")
-     identificador = st.session_state.validacion
+     st.text_input("La URL no es válida. Por favor, verifica el identificador del resultado del test.", key="validacion{validacion}")
+     identificador = st.session_state.validacion{validacion}
      
      if not identificador: 
         #st.warning("Por favor captura un identificador.")
@@ -48,7 +49,8 @@ while True:
     else:
      # Crear el objeto soup object desde response
      soup = BeautifulSoup(response.content, "html.parser")
-     break
+    validacion = validacion + 1 
+     #break
 
 
 # Definiendo la lista de atributos a extraer
