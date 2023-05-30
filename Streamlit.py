@@ -15,7 +15,7 @@ st.text_input("¿Cuál es tu nombre?:", key="nombre")
 userName = st.session_state.nombre
 if not userName:
   st.warning("Por favor captura un nombre.")
-  st.stop()
+  #st.stop()
 st.success("Gracias.")
 
 # Solicitar el identificador por teclado
