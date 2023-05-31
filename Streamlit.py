@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 import psycopg2
 
 # Solicitar el nombre por teclado
-st.text_input("¿Cuál es tu nombre?:", key="nombre")
+st.text_input("¿Cuál es tu nombre completo?:", key="nombre")
 userName = st.session_state.nombre
 if not userName:
   st.warning("Por favor captura un nombre.")
