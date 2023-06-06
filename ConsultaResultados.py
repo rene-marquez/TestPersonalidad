@@ -59,8 +59,8 @@ option = st.selectbox("¿Cuál es el resultado que quieres revisar?", testPerson
 
 st.write(testPersonalidad.loc[(testPersonalidad["Nombre"]==option)])
 
-datos5 = testPersonalidad.loc[(testPersonalidad["Nombre"]==option) & (testPersonalidad.loc[:, ["Neurosis", "Extroversión", "Apertura a experiencias", "Simpatía", "Meticulosidad"]])]
-
+datosUsuario = testPersonalidad.loc[(testPersonalidad["Nombre"]==option)]
+datos5 = datosUsuario.loc[:, ["Neurosis", "Extroversión", "Apertura a experiencias", "Simpatía", "Meticulosidad"]]
 st.write(datos5)
 
 
