@@ -60,7 +60,29 @@ option = st.selectbox("¿Cuál es el resultado que quieres revisar?", testPerson
 st.write(testPersonalidad.loc[(testPersonalidad["Nombre"]==option)])
 
 datosUsuario = testPersonalidad.loc[(testPersonalidad["Nombre"]==option)]
+
 datos5 = datosUsuario.loc[:, ["Neurosis", "Extroversión", "Apertura a experiencias", "Simpatía", "Meticulosidad"]]
-st.write(datos5)
+etiquetas=['Neurosis', 'Extroversión', 'Apertura a experiencias', 'Simpatía', 'Meticulosidad']
+lista = list(datos5.iloc[0])
+lista=np.concatenate((lista, [lista[0]]))
+
+datos5Promedio = dfPromedio.loc[:, ["Neurosis", "Extroversión", "Apertura a experiencias", "Simpatía", "Meticulosidad"]]
+esperado = list(datos5Promedio.iloc[0])
+esperado=np.concatenate((esperado, [esperado[0]]))
+
+plt.figure(figsize =(10, 6))
+plt.subplot(polar = True)
+
+theta = np.linspace(0, 2 * np.pi, len(lista))
+
+lineas, labels = plt.thetagrids(range(0, 360, int(360/len(etiquetas))),
+                                                         (etiquetas))
+plt.plot(theta, esperado)
+plt.plot(theta, lista)
+plt.fill(theta, lista, 'b', alpha = 0.1)
+plt.legend(labels =("Prospecto", option), loc = 3, framealpha=1)
+plt.title("The big 5")
+st.pyplot(plt.gcf())
+
 
 
