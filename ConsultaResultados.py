@@ -57,4 +57,6 @@ dfPromedio = pd.DataFrame([listaPromedio], columns=["Neurosis", "Ansiedad", "Ira
 option = st.selectbox("¿Cuál es el resultado que quieres revisar?", testPersonalidad["Nombre"])
 "Seleccionaste: ", option
 
-st.write(testPersonalidad.loc[(testPersonalidad["Nombre"]=option)])
+st.write(testPersonalidad.loc[(testPersonalidad["Nombre"]==option)])
+
+
